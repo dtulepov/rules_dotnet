@@ -62,6 +62,11 @@ These rules do not currently support the .NET Framework.
 These rules do not currently support .NET Core/Standard built with
 the official compiler on any platform.
 
+Downloading Mono currently does not work.
+
+Due to Windows short path limit (260) of cl compiler TMP env variable should be
+set to something short (like X:\ or c:\TEMP).
+
 Setup
 ~~~~~
 
