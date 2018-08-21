@@ -22,15 +22,16 @@ def _dotnet_nuget_impl(ctx,
   package = ctx.attr.package
   output_dir = ctx.path("")
 
-  url = ctx.attr.source + "/" + ctx.attr.package + "/" + ctx.attr.version 
+  url = ctx.attr.source + "/" + ctx.attr.package + "/" + ctx.attr.version
   ctx.download_and_extract(url, output_dir, ctx.attr.sha256, type="zip")  
- 
+  build_file_name = "BUILD" if not ctx.path("BUILD").exists else "BUILD.bazel"
+
   if build_file_content:
-    ctx.file("BUILD", build_file_content)
+    ctx.file(build_file_name, build_file_content)
   elif build_file:
-    ctx.symlink(ctx.path(build_file), "BUILD")
+    ctx.symlink(ctx.path(build_file), build_file_name)
   else:
-    ctx.template("BUILD.bazel",
+    ctx.template(build_file_name,
         Label("@io_bazel_rules_dotnet//dotnet/private:BUILD.nuget.bazel"),
         executable = False,
     )

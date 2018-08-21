@@ -3,10 +3,10 @@ C# Rules for Bazel_
 
 .. All external links are here
 .. _Bazel: https://bazel.build/
-.. |travis| image:: https://travis-ci.org/tomaszstrejczek/rules_dotnet.svg?branch=core
+.. |travis| image:: https://travis-ci.org/tomaszstrejczek/rules_dotnet.svg?branch=master
    :target: https://travis-ci.org/tomaszstrejczek/rules_dotnet
-.. |appvey| image:: https://ci.appveyor.com/api/projects/status/4wlsdo9kgwvt8b97/branch/core?svg=true      
-   :target: https://ci.appveyor.com/project/tomaszstrejczek/rules-dotnet/branch/core
+.. |appvey| image:: https://ci.appveyor.com/api/projects/status/4wlsdo9kgwvt8b97/branch/master?svg=true      
+   :target: https://ci.appveyor.com/project/tomaszstrejczek/rules-dotnet/branch/master
 .. _Mono: http://www.mono-project.com/
 .. _sandboxing: https://bazel.io/blog/2015/09/11/sandboxing.html 
 .. _dotnet_library: dotnet/core.rst#dotnet_library
