@@ -24,9 +24,9 @@ def _dotnet_nuget_impl(ctx,
   if ctx.attr.use_nuget_client and ctx.os.name.startswith('windows'):
     """use_nuget_client for private nuget feed (tfs/vsts/etc)"""
     nuget = ctx.path(ctx.attr._nuget_exe)
-    nuget_cmd = [nuget, "install", "-Version", ctx.attr.version,
+    nuget_cmd = [nuget, "install", ctx.attr.package, "-Version", ctx.attr.version,
                     "-OutputDirectory", output_dir,
-                    "-Source", ctx.attr.source, ctx.attr.package]
+                    "-Source", ctx.attr.source]
     result = ctx.execute(nuget_cmd)
     if result.return_code:
         fail("Nuget command failed: %s (%s)" % (result.stderr, " ".join(nuget_cmd)))
